@@ -1,0 +1,5 @@
+The data you have in the database does not have an encrypted value in the participant id field.  It's a setting in a configuration file on the MindTrails softare - and I don't have it turned on presently because it makes for a big mess if we can't easily decode it.
+
+I suggest you catch this error when it happens, and just use the raw text instead.  I would also turn on the encryption and add some data to one of the tables so you can test how it works when the data is actually encypted.  In this way we can be assured that it will work in all cases.
+
+You can turn on securty by editing the /src/main/resources/application.properties file.  At the bottom of this file is a setting "encryption.enabled=false"  chance this setting to true and restart the server.  New data saved to the database should have the participant id encrypted into a bunch of nonsense.  
